@@ -1,6 +1,10 @@
-# mystellartools-txsigner
+# MyStellar.Tools Transaction Signer
 
-> MyStellar.Tools Transaction Signer
+> Offline Stellar Transaction Signer
+
+- Multi-sig
+- Ledger support
+- Crossplatform
 
 #### Build Setup
 

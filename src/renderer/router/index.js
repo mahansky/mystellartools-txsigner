@@ -7,8 +7,23 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'landing-page',
-      component: require('@/components/LandingPage').default
+      name: 'transaction',
+      component: require('@/components/Transaction').default
+    },
+    {
+      path: '/explainer',
+      name: 'explainer',
+      component: require('@/components/Explainer').default
+    },
+    {
+      path: '/signer',
+      name: 'signer',
+      component: require('@/components/Signer').default
+    },
+    {
+      path: '/result',
+      name: 'result',
+      component: require('@/components/Result').default
     },
     {
       path: '*',

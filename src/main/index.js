@@ -20,9 +20,10 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
+    width: 900,
+    height: 600,
     useContentSize: true,
-    width: 1000
+    resizable: false
   })
 
   mainWindow.loadURL(winURL)
@@ -44,6 +45,10 @@ app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
   }
+})
+
+app.on('browser-window-created', (e, window) => {
+  window.setMenu(null)
 })
 
 /**
