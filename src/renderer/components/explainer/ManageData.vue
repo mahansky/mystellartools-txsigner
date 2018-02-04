@@ -7,10 +7,7 @@
             </tr>
             <tr>
                 <td><b>Value</b></td>
-                <td>
-                    <span v-text="decode64(operation.value)"></span>
-                    <span v-text="operation.value" class="pl-3 grey--text"></span>
-                </td>
+                <td><span v-text="operation.value"></span></td>
             </tr>
         </table>
     </div>
@@ -18,12 +15,6 @@
 
 <script>
   export default {
-    props: ['operation'],
-
-    methods: {
-      decode64 (value) {
-        return window.atob(value)
-      }
-    }
+    props: ['operation']
   }
 </script>

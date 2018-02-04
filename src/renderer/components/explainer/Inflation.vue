@@ -2,8 +2,7 @@
     <div>
         <table>
             <tr>
-                <td><b>Destination</b></td>
-                <td><span v-text="operation.destination"></span></td>
+                <td>This operation generates the inflation</td>
             </tr>
         </table>
     </div>

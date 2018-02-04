@@ -74,6 +74,7 @@ import AllowTrust from './explainer/AllowTrust'
 import ChangeTrust from './explainer/ChangeTrust'
 import CreateAccount from './explainer/CreateAccount'
 import CreatePassiveOffer from './explainer/CreatePassiveOffer'
+import Inflation from './explainer/Inflation'
 import ManageData from './explainer/ManageData'
 import ManageOffer from './explainer/ManageOffer'
 import PathPayment from './explainer/PathPayment'
@@ -87,6 +88,7 @@ export default {
     ChangeTrust,
     CreateAccount,
     CreatePassiveOffer,
+    Inflation,
     ManageData,
     ManageOffer,
     PathPayment,
