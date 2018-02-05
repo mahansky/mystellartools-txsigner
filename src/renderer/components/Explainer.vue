@@ -56,13 +56,17 @@
           </v-flex>
         </template>
       </v-layout>
-      
 
-      <div class="text-xs-right">
-      <v-btn color="blue" dark class="mx-0 mt-4" @click="process">
-        Sign
-        <v-icon>chevron_right</v-icon>
-      </v-btn>
+      <div class="nav-buttons mt-3">
+        <v-spacer></v-spacer>
+        <v-icon>chevron_left</v-icon>
+        <router-link :to="{name: 'transaction'}">
+          Back
+        </router-link>
+        <v-btn color="blue" dark class="mr-0" @click="process">
+          Sign
+          <v-icon>chevron_right</v-icon>
+        </v-btn>
       </div>
     </v-flex>
   </v-layout>

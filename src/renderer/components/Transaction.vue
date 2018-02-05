@@ -55,6 +55,12 @@ export default {
         this.$router.push({name: 'explainer'})
       }
     }
+  },
+
+  created () {
+    if (this.$store.getters.transaction) {
+      this.transaction = this.$store.getters.transaction.toEnvelope().toXDR('base64')
+    }
   }
 }
 </script>

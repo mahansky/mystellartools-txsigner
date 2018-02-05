@@ -13,7 +13,12 @@
           ></v-text-field>
         </v-card-text>
       </v-card>
-      <div class="text-xs-right mt-4">
+      <div class="nav-buttons mt-4">
+        <v-spacer></v-spacer>
+        <v-icon>chevron_left</v-icon>
+        <router-link :to="{name: 'signer'}">
+          Back
+        </router-link>
         <v-btn color="grey" dark @click="reset">
           Reset
         </v-btn>

@@ -51,4 +51,15 @@ export default {
 main.content {
   display: flex;
 }
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-buttons a {
+  text-decoration: none;
+  color: rgba(0,0,0,.54) !important;
+  padding-right: 16px;
+}
 </style>
