@@ -8,6 +8,9 @@ const mutations = {
   },
   REMOVE_TRANSACTION (state) {
     state.transaction = null
+  },
+  SIGN_TRANSACTION (state, keypair) {
+    state.transaction.sign(keypair)
   }
 }
 

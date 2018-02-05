@@ -29,7 +29,7 @@
 export default {
   computed: {
     transaction () {
-      return 'asdasdasdasd'
+      return this.$store.getters.transaction.toEnvelope().toXDR('base64')
     }
   },
 
