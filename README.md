@@ -12,9 +12,6 @@
 # install dependencies
 yarn
 
-# native modules
-./node_modules/.bin/electron-rebuild
-
 # serve with hot reload at localhost:9080
 yarn run dev
 
