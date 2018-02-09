@@ -7,7 +7,7 @@
             </tr>
             <tr>
                 <td><b>Starting balance</b></td>
-                <td><span v-text="operation.starting_balance"></span> XLM</td>
+                <td><span v-text="operation.startingBalance"></span> XLM</td>
             </tr>
         </table>
     </div>
