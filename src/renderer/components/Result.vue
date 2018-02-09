@@ -22,7 +22,7 @@
         <v-btn color="grey" dark @click="reset">
           Reset
         </v-btn>
-        <v-btn color="blue" class="mr-0" dark>
+        <v-btn color="blue" class="mr-0" dark @click="copy">
           Copy
         </v-btn>
       </div>
@@ -31,6 +31,8 @@
 </template>
 
 <script>
+const { clipboard } = require('electron')
+
 export default {
   computed: {
     transaction () {
@@ -42,6 +44,12 @@ export default {
     reset () {
       this.$store.commit('REMOVE_TRANSACTION')
       this.$router.push({name: 'transaction'})
+    },
+
+    copy () {
+      clipboard.write({
+        text: this.transaction
+      })
     }
   }
 }
