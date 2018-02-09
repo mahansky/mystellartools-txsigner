@@ -15,6 +15,10 @@ const mutations = {
     state.transaction.sign(keypair)
   },
 
+  ADD_SIGNATURE (state, signature) {
+    state.transaction.signatures.push(signature)
+  },
+
   REMOVE_SIGNATURE (state, index) {
     state.transaction.signatures.splice(index, 1)
   }

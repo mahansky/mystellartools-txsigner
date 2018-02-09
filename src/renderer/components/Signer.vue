@@ -25,9 +25,12 @@
           </v-card-text>
           <v-divider></v-divider>
         </template>
+
+        <ledger v-if="signingWithLedger"></ledger>
+
         <v-card-actions>
-          <v-btn flat @click="signWithSecret">Sign with Secret</v-btn>
-          <v-btn flat @click="signWithLedger" :loading="signingWithLedger">Sign with Ledger</v-btn>
+          <v-btn flat @click="signingWithSecret = !signingWithSecret">Sign with Secret</v-btn>
+          <v-btn flat @click="signingWithLedger = !signingWithLedger">Sign with Ledger</v-btn>
         </v-card-actions>
       </v-card>
 
@@ -50,11 +53,13 @@
 import Stellar from 'stellar-sdk'
 import Network from './signer/Network'
 import Signature from './signer/Signature'
+import Ledger from './signer/Ledger'
 
 export default {
   components: {
     Network,
-    Signature
+    Signature,
+    Ledger
   },
 
   data: () => ({
@@ -84,14 +89,6 @@ export default {
   },
 
   methods: {
-    signWithSecret () {
-      this.signingWithSecret = !this.signingWithSecret
-    },
-
-    signWithLedger () {
-      this.signingWithLedger = true
-    },
-
     signTransaction (key) {
       if (Stellar.Network.current().networkPassphrase()) {
         this.$store.commit('SIGN_TRANSACTION', Stellar.Keypair.fromSecret(key))
