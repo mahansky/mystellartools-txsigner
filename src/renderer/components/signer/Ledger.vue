@@ -23,8 +23,9 @@
 </template>
 
 <script>
-import Stellar from 'stellar-sdk'
-import StellarLedger from 'stellar-ledger-api'
+// import Stellar from 'stellar-sdk'
+import Transport from '@ledgerhq/hw-transport-node-hid'
+import Str from '@ledgerhq/hw-app-str'
 
 export default {
   data: () => ({
@@ -49,28 +50,53 @@ export default {
     sign () {
       this.loading = true
 
-      StellarLedger.comm_node.create_async(20, true)
-        .then(comm => {
-          const api = new StellarLedger.Api(comm)
+      this.connect()
+        .then(({ str }) => {
+          str.getPublicKey(this.bip32Path)
+            .then(({ publicKey }) => {
+              console.log(publicKey)
 
-          return api.getPublicKey_async(this.bip32Path)
-            .then(result => {
-              return result['publicKey']
-            })
-            .then(publicKey => {
-              api.signTx_async(this.bip32Path, this.$store.getters.transaction)
-                .then(result => {
-                  this.$store.commit('ADD_SIGNATURE', new Stellar.xdr.DecoratedSignature({
-                    hint: Stellar.Keypair.fromPublicKey(publicKey).signatureHint(),
-                    signature: result['signature']
-                  }))
+              str.signTransaction(this.bip32Path, this.$store.getters.transaction.signatureBase())
+                .then(signature => {
+                  console.log(signature)
+                  // this.$store.commit('ADD_SIGNATURE', new Stellar.xdr.DecoratedSignature({
+                  //   hint: Stellar.Keypair.fromPublicKey(publicKey).signatureHint(),
+                  //   signature: signature['signature']
+                  // }))
                 })
             })
-            .then(() => {
-              this.loading = false
-            })
         })
-        .catch((err) => { console.log(err) })
+        .catch(err => console.log(err))
+        .then(() => {
+          this.loading = false
+          this.$emit('done')
+        })
+    },
+
+    connect () {
+      if (this.str) {
+        return Promise.resolve({
+          transport: this.transport,
+          str: this.str
+        })
+      }
+
+      return Transport.create()
+        .then(t => {
+          this.transport = t
+          this.str = new Str(t)
+
+          return {
+            transport: this.transport,
+            str: this.str
+          }
+        })
+    }
+  },
+
+  destroyed () {
+    if (this.transport) {
+      this.transport.close()
     }
   }
 }

@@ -26,11 +26,11 @@
           <v-divider></v-divider>
         </template>
 
-        <ledger v-if="signingWithLedger"></ledger>
+        <ledger v-if="signingWithLedger" @done="signingWithLedger = false"></ledger>
 
         <v-card-actions>
           <v-btn flat @click="signingWithSecret = !signingWithSecret">Sign with Secret</v-btn>
-          <v-btn flat @click="signingWithLedger = !signingWithLedger">Sign with Ledger</v-btn>
+          <v-btn flat @click="signingWithLedger = !signingWithLedger" v-if="operationsCount === 1">Sign with Ledger</v-btn>
         </v-card-actions>
       </v-card>
 
@@ -72,6 +72,10 @@ export default {
   computed: {
     signatures () {
       return this.$store.getters.transaction.signatures
+    },
+
+    operationsCount () {
+      return this.$store.getters.transaction.operations.length
     }
   },
 
