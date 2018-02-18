@@ -23,7 +23,7 @@
 </template>
 
 <script>
-// import Stellar from 'stellar-sdk'
+import Stellar from 'stellar-sdk'
 import Transport from '@ledgerhq/hw-transport-node-hid'
 import Str from '@ledgerhq/hw-app-str'
 
@@ -52,17 +52,16 @@ export default {
 
       this.connect()
         .then(({ str }) => {
-          str.getPublicKey(this.bip32Path)
+          return str.getPublicKey(this.bip32Path)
             .then(({ publicKey }) => {
               console.log(publicKey)
 
-              str.signTransaction(this.bip32Path, this.$store.getters.transaction.signatureBase())
-                .then(signature => {
-                  console.log(signature)
-                  // this.$store.commit('ADD_SIGNATURE', new Stellar.xdr.DecoratedSignature({
-                  //   hint: Stellar.Keypair.fromPublicKey(publicKey).signatureHint(),
-                  //   signature: signature['signature']
-                  // }))
+              return str.signTransaction(this.bip32Path, this.$store.getters.transaction.signatureBase())
+                .then(({ signature }) => {
+                  this.$store.commit('ADD_SIGNATURE', new Stellar.xdr.DecoratedSignature({
+                    hint: Stellar.Keypair.fromPublicKey(publicKey).signatureHint(),
+                    signature: signature
+                  }))
                 })
             })
         })
