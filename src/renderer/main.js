@@ -9,7 +9,7 @@ if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.config.productionTip = false
 Vue.use(Vuetify)
 
-import('../../node_modules/vuetify/dist/vuetify.min.css')
+import('~vuetify/dist/vuetify.min.css')
 
 /* eslint-disable no-new */
 new Vue({

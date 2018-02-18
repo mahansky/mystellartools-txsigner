@@ -1,6 +1,6 @@
 {
   "name": "mystellartools-txsigner",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "mahansky <m.pro.mark@gmail.com>",
   "description": "MyStellar.Tools Transaction Signer",
   "license": "Apache-2.0",
@@ -21,8 +21,8 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "build": {
-    "productName": "mystellartools-txsigner",
-    "appId": "org.simulatedgreg.electron-vue",
+    "productName": "MyStellar.Tools Transaction Signer",
+    "appId": "tools.mystellar.txsigner",
     "directories": {
       "output": "build"
     },
