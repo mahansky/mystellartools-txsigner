@@ -5,11 +5,11 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+import 'vuetify/dist/vuetify.min.css'
+
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.config.productionTip = false
 Vue.use(Vuetify)
-
-import('~vuetify/dist/vuetify.min.css')
 
 /* eslint-disable no-new */
 new Vue({

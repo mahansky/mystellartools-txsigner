@@ -25,7 +25,7 @@ export default {
   font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
-  src: url(/static/MaterialIcons-Regular.ttf) format("truetype");
+  src: url(assets/MaterialIcons-Regular.ttf) format("truetype");
 }
 
 .material-icons {
