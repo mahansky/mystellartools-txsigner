@@ -1,5 +1,5 @@
-
 # MyStellar.Tools Transaction Signer
+[![Build Status](https://travis-ci.org/mahansky/mystellartools-txsigner.svg?branch=master)](https://travis-ci.org/mahansky/mystellartools-txsigner) [![Build status](https://ci.appveyor.com/api/projects/status/voytsupag860q9km/branch/master?svg=true)](https://ci.appveyor.com/project/mahansky/mystellartools-txsigner/branch/master)
 
 ## How to use
 
