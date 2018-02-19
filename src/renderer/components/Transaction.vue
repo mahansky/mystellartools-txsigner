@@ -4,7 +4,8 @@
       <div class="body-2 mb-3">Transaction</div>
       <v-card>
         <v-card-text>
-          <v-text-field 
+          <v-text-field
+            id="transaction-input"
             v-model="transaction"
             multi-line
             placeholder="Paste your Transaction Envelope XDR here"
@@ -15,7 +16,7 @@
         </v-card-text>
       </v-card>
       <div class="text-xs-right">
-      <v-btn :color="color" dark class="mx-0 mt-4" @click="process">
+      <v-btn :color="color" dark class="mx-0 mt-4" @click="process" id="explain-button">
         Explain
         <v-icon>chevron_right</v-icon>
       </v-btn>
