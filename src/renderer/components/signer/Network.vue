@@ -62,17 +62,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .network {
   position: relative;
   top: 3px;
 }
 
-.network input {
+.network >>> input {
   font-size: 14px;
 }
 
-.network .input-group__details {
+.network >>> .input-group__details {
   display: none;
 }
 
